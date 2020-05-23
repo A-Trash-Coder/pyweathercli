@@ -2,12 +2,10 @@ import click
 import pyowm
 from pyfiglet import figlet_format
 import json
-import platform
+import site
 
-if platform.system() == "Windows":
-    path = "pyweathercli\config.json"
-else:
-    path = "config.json"
+python_package_folder = site.getsitepackages()[0]
+path = python_package_folder + "/pyweathercli"
 
 with open(path, "r") as cf:
     config = json.load(cf)

@@ -4,7 +4,7 @@ python-weather-cli is a command line interface to retrieve information on differ
 
 ### Installing
 
-> $ pip install -U python-weather-cli
+> $ pip install -U pyweathercli
 
 ### Configuration File
 

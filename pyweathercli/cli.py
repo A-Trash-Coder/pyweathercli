@@ -5,7 +5,7 @@ import json
 import site
 
 python_package_folder = site.getsitepackages()[0]
-path = python_package_folder + "/pyweathercli"
+path = python_package_folder + "/pyweathercli/config.json"
 
 with open(path, "r") as cf:
     config = json.load(cf)

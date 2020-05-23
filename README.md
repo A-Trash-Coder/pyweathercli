@@ -1,6 +1,6 @@
-### python-weather-cli
+### pyweathercli
 
-python-weather-cli is a command line interface to retrieve information on different locations. It allows for configuration of a default location. This allows to not pass a location argument each time. python-weather-cli uses Open Weather Map and pyowm to retrieve information, pyfiglet for text encoding and click for the cli creation.
+pyweathercli is a command line interface to retrieve information on different locations. It allows for configuration of a default location. This allows to not pass a location argument each time. pyweathercli uses Open Weather Map and pyowm to retrieve information, pyfiglet for text encoding and click for the cli creation.
 
 ### Installing
 

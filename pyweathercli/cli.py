@@ -2,17 +2,22 @@ import click
 import pyowm
 from pyfiglet import figlet_format
 import json
+import platform
 
+if platform.system() == "Windows":
+    path = "pyweathercli\config.json"
+else:
+    path = "config.json"
 
-with open("pyweathercli\config.json", "r") as cf:
+with open(path, "r") as cf:
     config = json.load(cf)
 
 def write_location(location):
-    with open("pyweathercli\config.json", "w") as cf:
+    with open(path, "w") as cf:
         json.dump({"default_location": f"{location}", "api_key": config["api_key"]}, cf)
 
 def write_key(key):
-    with open("pyweathercli\config.json", "w") as cf:
+    with open(path, "w") as cf:
         json.dump({"default_location": config["default_location"], "api_key": key}, cf)
 
 @click.command(help="Returns weather information on a location using OWM.")

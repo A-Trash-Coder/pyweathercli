@@ -7,16 +7,17 @@ from pathlib import Path
 import sys
 
 path = Path(sys.modules[__name__].__file__).parents[0] / 'config.json'
-writable_config = open(path, "w")
 
 with open(path) as cf:
     config = json.load(cf)
 
 def write_location(location):
-    json.dump({"default_location": f"{location}", "api_key": config["api_key"]}, writable_config)
+    with open(path, "w") as cf:
+        json.dump({"default_location": f"{location}", "api_key": config["api_key"]}, cf)
 
 def write_key(key):
-    json.dump({"default_location": config["default_location"], "api_key": key}, writable_config)
+    with open(path, "w") as cf:
+        json.dump({"default_location": config["default_location"], "api_key": key}, cf)
 
 @click.command(help="Returns weather information on a location using OWM.")
 @click.option("--location", "-l", required=False, help="The location to retrieve information on.")
@@ -77,4 +78,3 @@ def weather(location: str=None, default: str=None, apikey: str=None):
     click.echo(f"Wind: {round(wind_mph)}mph / {round(wind_kph)}kph")
     click.echo(f"Visibility Distance: {visibility_miles}m / {visibility}km")
     click.secho("---------------------------------------------------------", fg="red")
-    writable_config.close()

@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf8") as fh:
 
 setup(
     name="pyweathercli",
-    version="0.0.1",
+    version="0.0.2",
     author="Gavyn Stanley",
     description="A cli using click for weather",
     long_description=long_desc,

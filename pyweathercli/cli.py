@@ -3,20 +3,20 @@ import pyowm
 from pyfiglet import figlet_format
 import json
 import site
+from pathlib import Path
+import sys
 
-python_package_folder = site.getsitepackages()[0]
-path = python_package_folder + "/pyweathercli/config.json"
+path = Path(sys.modules[__name__].__file__).parents[0] / 'config.json'
+writable_config = open(path, "w")
 
-with open(path, "r") as cf:
+with open(path) as cf:
     config = json.load(cf)
 
 def write_location(location):
-    with open(path, "w") as cf:
-        json.dump({"default_location": f"{location}", "api_key": config["api_key"]}, cf)
+    json.dump({"default_location": f"{location}", "api_key": config["api_key"]}, writable_config)
 
 def write_key(key):
-    with open(path, "w") as cf:
-        json.dump({"default_location": config["default_location"], "api_key": key}, cf)
+    json.dump({"default_location": config["default_location"], "api_key": key}, writable_config)
 
 @click.command(help="Returns weather information on a location using OWM.")
 @click.option("--location", "-l", required=False, help="The location to retrieve information on.")
@@ -77,3 +77,4 @@ def weather(location: str=None, default: str=None, apikey: str=None):
     click.echo(f"Wind: {round(wind_mph)}mph / {round(wind_kph)}kph")
     click.echo(f"Visibility Distance: {visibility_miles}m / {visibility}km")
     click.secho("---------------------------------------------------------", fg="red")
+    writable_config.close()

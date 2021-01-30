@@ -19,9 +19,9 @@ A configuration file can be located in the package file. The file is named under
 
 ### Obtaining an OWM API Key
 
-To obtain an OWM API Key, visit the link [here](https://openweathermap.org/). Click the login button. Then enter your credentials or sign up. You will be greeted with a landing page. On the middle navigation bar, click API Keys, and a `default` API Key will be shown. You can copy that or make one of your own. Once you obtain your API Key, set it using the `--apikey` flag during your first use. Example:
+To obtain an OWM API Key, visit the link [here](https://openweathermap.org/). Click the login button. Then enter your credentials or sign up. You will be greeted with a landing page. On the middle navigation bar, click API Keys, and a `default` API Key will be shown. You can copy that or make one of your own. Once you obtain your API Key, set it using the `--api_key` flag during your first use. Example:
 
-> $ weather --location "Los Angeles" --apikey "API KEY HERE"
+> $ weather --location "Los Angeles" --api_key "API KEY HERE"
 
 ### Use
 

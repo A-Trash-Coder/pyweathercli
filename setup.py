@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf8") as fh:
 
 setup(
     name="pyweathercli",
-    version="0.0.2",
+    version="0.0.3",
     author="Gavyn Stanley",
     description="A cli using click for weather",
     long_description=long_desc,
@@ -14,7 +14,7 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     package_data={'pyweathercli': ['*.json']},
-    install_requires=["click", "pyfiglet", "pyowm", "colorama"],
+    install_requires=["click", "pyfiglet", "pyowm", "colorama", "python-dateutil"],
     entry_points={
         "console_scripts":["weather=pyweathercli.cli:weather"]
     }
